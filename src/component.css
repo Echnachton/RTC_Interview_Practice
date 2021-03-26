@@ -1,0 +1,55 @@
+#outer-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100vw;
+    height:100vh;
+}
+
+.inner-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:50vw;
+    height:70vh;
+    box-shadow: 5px 5px #02D99F;
+    border-radius: 25px;
+    background-color: #0EF074;
+    gap: 10vh;
+}
+
+.inner-container#create{
+    gap:0vh
+}
+
+.inner-container#create > button{
+    margin-top: 10vh;
+}
+
+.inner-container#join{
+    overflow: auto;
+}
+
+::-webkit-scrollbar{
+    width: 0px;
+}
+
+button{
+    width: 25vw;
+    height: 5vh;
+    border: 1.5px solid #ffffff;
+    border-radius: 25px;
+    background-color: #ffffff;
+    outline: none;
+}
+
+.serverContainer{
+    display: flex;
+    border-radius: 25px;
+    background-color: #ffffff;
+    width: 35vw;
+    height: 10vh;
+    align-items: center;
+    justify-content: center;
+}
