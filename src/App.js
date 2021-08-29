@@ -1,5 +1,5 @@
 import React from "react";
-import {Title, Create, Join, Game} from "./components"
+import {Title, Game} from "./components"
 
 class App extends React.Component{
   constructor(props){
@@ -7,16 +7,27 @@ class App extends React.Component{
     this.state = {
       curr:0,
       list:[
-        <Title ch={this.changeState}/>,
-        <Create ch={this.changeState}/>,
-        <Join ch={this.changeState}/>,
-        <Game ch={this.changeState}/>
-      ]
+        <Title ch={this.changeState} mi={this.setMatchInfo}/>,
+        <Game ch={this.changeState} mi={this.getMatchInfo} invertMode={this.invertMode}/>
+      ],
+      matchInfo:{peer:101, mode:101}
     }
   }
 
   changeState = state =>{
     this.setState({curr:state});
+  }
+
+  getMatchInfo = _=> {
+    return this.state.matchInfo;
+  }
+
+  setMatchInfo = (peer, mode)=>{
+    this.setState({matchInfo:{peer:peer, mode:mode}});
+  }
+
+  invertMode = _=>{
+    this.state.matchInfo.mode===0 ? this.setState({matchInfo:{peer:this.state.matchInfo.peer, mode:1}}) : this.setState({matchInfo:{peer:this.state.matchInfo.peer, mode:0}});
   }
 
   render(){
@@ -28,63 +39,4 @@ class App extends React.Component{
   }
 }
 
-
-
 export default App;
-
-// constructor(props){
-//   super(props);
-//   this.state = {peerId: null, pool:null};
-// }
-
-// handleNetwork(){
-//   this.handlePeer();
-// }
-
-// handlePeer(){
-//   //peer connection
-//   const peer = new Peer();
-//   peer.on('open', async id => {
-//     this.setState({peerId:id});
-//     console.log("state set");
-//     this.handleSockets();
-//   });
-// }
-
-// handleSockets(){
-//   //socketConnection
-//   socket.emit("getPool",null);
-//   socket.on("poolUpdate", data =>{
-//     this.setState({pool:data});
-//   });
-// }
-
-// createRoom(){
-//   document.querySelector("button").setAttribute("disabled","");
-//   socket.emit("createRoom",socket.id);
-// }
-
-// componentDidMount(){
-//   if("mediaDevices" in navigator && "getUserMedia" in navigator.mediaDevices){
-//     navigator.mediaDevices.getUserMedia({video:true, audio:true})
-//     .then(mediaStream=>{
-//       const video = document.querySelector("video");
-//       video.srcObject = mediaStream;
-//       video.onloadedmetadata = e => {
-//         video.play();
-//       };
-//       this.handleNetwork();
-//     })
-//     .catch(err=>console.log(err));
-//   }
-// };
-
-// render(){
-//   return(
-//     <>
-//     <video muted/>
-//     <button onClick={this.createRoom}>Create Room</button>
-//     {this.state.pool}
-//     </>
-//   );
-// }

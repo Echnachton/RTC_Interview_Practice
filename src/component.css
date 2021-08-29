@@ -1,55 +1,96 @@
-#outer-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width:100vw;
-    height:100vh;
-}
-
-.inner-container{
+#titleConatiner{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width:50vw;
-    height:70vh;
-    box-shadow: 5px 5px #02D99F;
-    border-radius: 25px;
-    background-color: #0EF074;
-    gap: 10vh;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    gap: 3vh;
 }
 
-.inner-container#create{
-    gap:0vh
+#title{
+    color: grey;
+    font-size: larger;
 }
 
-.inner-container#create > button{
-    margin-top: 10vh;
+#nop{
+    color: grey;
+    font-size: small;
 }
 
-.inner-container#join{
-    overflow: auto;
-}
-
-::-webkit-scrollbar{
-    width: 0px;
-}
-
-button{
-    width: 25vw;
-    height: 5vh;
-    border: 1.5px solid #ffffff;
-    border-radius: 25px;
-    background-color: #ffffff;
-    outline: none;
-}
-
-.serverContainer{
+#videoChatContainer{
     display: flex;
-    border-radius: 25px;
-    background-color: #ffffff;
-    width: 35vw;
-    height: 10vh;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row;
+}
+
+#videoContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+#self{
+    width:70vw;
+    height:47.5vh;
+    background-color: lightgray;
+}
+
+#other{
+    width:70vw;
+    height:47.5vh;
+    background-color: lightgray;
+}
+
+#timer{
+    width:100vw;
+    height:5vh;
+    display: flex;
+    flex-direction: row;
+    background-color: coral;
+}
+
+#cover{
+    width: 0vw;
+    height: 5vh;
+    background-color: white;
+    animation-duration: 300s;
+    animation-timing-function: linear;
+}
+
+@keyframes timer {
+    from{
+        width: 0vw;
+    }to{
+        width: 100vw;
+    }
+}
+
+#buffer{
+    width: 30vw;
+    height: 95vh;
+}
+
+.spinner:before{
+    content:"";
+    box-sizing:border-box;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    height: 60px;
+    width: 60px;
+    margin-top:-30px;
+    margin-left: -30px;
+    border-radius: 50%;
+    border: 3px solid lightgray;
+    border-top-color: coral;
+    animation: spinner 2s linear infinite;
+}
+
+@keyframes spinner{
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+li{
+    margin-top: 2vh;
 }
